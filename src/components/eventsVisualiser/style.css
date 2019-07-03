@@ -1,0 +1,19 @@
+#events-visualiser {
+  width: 25pt;
+  margin-left: 7.5pt;
+  height: 3pt;
+  z-index: 5;
+  position: relative;
+  top: -10pt;
+  display: none;
+  display: flex;
+  align-items: center;
+}
+#events-visualiser #one-part {
+  height: 98%;
+  width: 98%;
+  background-color: #48C1C2;
+  border-radius: 5pt;
+  float: left;
+  margin-right: 5%;
+}

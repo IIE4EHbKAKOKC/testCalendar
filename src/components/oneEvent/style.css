@@ -1,0 +1,35 @@
+#one-event {
+  width: 100%;
+  height: auto;
+  float: left;
+  background-color: #45B4B7;
+  font-size: 14pt;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 8pt;
+}
+#one-event #one-event-name {
+  float: left;
+  height: 16pt;
+  margin-left: 6.4%;
+  margin-top: 8pt;
+}
+#one-event #one-event-body {
+  float: left;
+  padding-bottom: 8pt;
+  margin-left: 6.4%;
+  font-weight: 700;
+  font-size: 16pt;
+}
+#one-event #one-event-time {
+  float: right;
+  height: 16pt;
+  margin-right: 6.4%;
+  margin-top: 8pt;
+}
+#one-event #one-event-header {
+  width: 100%;
+  float: left;
+  height: auto;
+  opacity: 0.5;
+}

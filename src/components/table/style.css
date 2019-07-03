@@ -1,0 +1,8 @@
+#table {
+  float: left;
+  width: 100%;
+  box-sizing: border-box;
+}
+#first {
+  margin-left: calc(-1 * calc(calc(100% - 280pt) / 14));
+}

@@ -1,0 +1,85 @@
+#calendar-header {
+  background-color: #0B3157;
+  color: white;
+  width: 100%;
+  height: 40pt;
+}
+#calendar-header #flex {
+  width: 70%;
+  height: 100%;
+  position: absolute;
+  left: 15%;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+#calendar-header .button {
+  float: left;
+  height: 100%;
+  font-size: 12pt;
+  font-weight: 700;
+  cursor: pointer;
+}
+#calendar-header #left {
+  margin-left: 4.57%;
+  color: #48C1C2;
+}
+#calendar-header #right {
+  float: right;
+  margin-right: 4.57%;
+  color: #48C1C2;
+}
+#calendar-header #center {
+  font-size: 16pt;
+  font-weight: 800;
+  box-sizing: border-box;
+  padding-top: 3.1%; 
+}
+#calendar-header #text {
+  margin-top: 40%;
+}
+#calendar-header #center #text{
+  /*margin-top: 10%;*/
+  margin-top: 0px;
+  padding-right: 3px;
+  float: left;
+}
+#calendar-header #center #triangle{
+  box-sizing: border-box;
+  margin-top: 4pt;
+  float: left;
+  width: 12.73pt;
+  height: 7.78pt;
+  font-size: 12px;
+  opacity: 0.5;
+}
+#calendar-header #drop-down-menu {
+  width: 375pt;
+  height: 44pt;
+  background-color: #0B3157;
+  position: absolute;
+  top:40pt;
+  z-index: 5;
+  float: left;
+}
+#calendar-header #drop-down-menu .button {
+  border: 1px solid white;
+  width: 29.47%;
+  height: 68.18%;
+  text-align: center;
+  margin-top:1.5%;
+  box-sizing: border-box;
+  padding-top: 10px;
+  opacity: 0.5;
+  border-radius: 15px;
+}
+#calendar-header #drop-down-menu #i1 {
+  float: left;
+  margin-left: 19.73%;
+}
+#calendar-header #drop-down-menu #i2 {
+  float: right;
+  margin-right: 19.73%;
+}
