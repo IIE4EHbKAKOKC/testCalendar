@@ -2,6 +2,6 @@
     1. Вместо повсеместной проверки на существование момента (типо if (m!==undefined) m = moment() ),
     можно было написать 
     componentDidMount () {
-        this.state.activeDay = moment()
+        //задаем activeDay = moment ()
     }
   
