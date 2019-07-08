@@ -4,8 +4,8 @@ import React from 'react';
 
 class Events extends React.Component {
   renderAllEvents (events) {
-    var arr = [];
-    for (var i = 0;i<events.length;i++)
+    const arr = [];
+    for (let i = 0;i<events.length;i++)
       arr[i] = this.renderOneEvent(events[i],i);
     return(arr);
   }

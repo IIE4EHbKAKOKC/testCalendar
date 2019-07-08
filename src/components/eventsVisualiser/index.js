@@ -9,8 +9,8 @@ const Visualiser = (props) => {
     );
   }
   const getStyle = (i,width) => {
-    var style = {};
-    var anotherS = {};
+    const style = {};
+    let anotherS = {};
     style.width = width;
     if (props.styles[i]!==undefined)
       anotherS = Object.assign({},props.styles[i]);
@@ -18,10 +18,10 @@ const Visualiser = (props) => {
     return Object.assign(anotherS,style);
   }
   const renderAllParts = (n) => {
-    var arr = [];
+    const arr = [];
     const width = ('calc(90% / ' + props.events + ')');
     if (props.events !== undefined)
-    for (var i = 0; i < n; i++) {
+    for (let i = 0; i < n; i++) {
       arr[i] = renderOnePart(i,getStyle(i,width));
     }
     return arr;

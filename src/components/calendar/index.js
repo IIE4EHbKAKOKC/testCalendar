@@ -9,63 +9,55 @@ class Calendar extends React.Component {
   state = {
     numberArray:[],
     activeDay:undefined,
-    firstDay:moment(),
-    lastDay:moment(),
-    mode:"week"
+    firstDay:undefined,
+    lastDay:undefined,
+    mode:undefined
   }
-  constructor (props) {
-    super(props);
-    this.update(this.state.activeDay);
+  componentWillMount () {
+    this.update(moment());
   }
+
   update (m) {
-    if (m === undefined)
-      m = moment();
-    this.props.updateMethod(m);
     if (this.state.mode === "week")
       this.weekUpdate(m);
     else
       this.monthUpdate(m);
   }
   weekUpdate (m) {
-    if (m === undefined)
-      m = moment();
-    var aD = moment(m);
-    var fD = moment(m.startOf("week"));
-    var lD = moment(m.endOf("week"));
+    this.props.updateMethod(m);
+    const aD = moment(m);
+    const fD = moment(m.startOf("week"));
+    const lD = moment(m.endOf("week"));
     //задаем числа
-    var arr = [];
-    var th = moment(fD);
-    var i = th.format('e');
+    const arr = [];
+    let th = moment(fD);
+    let i = th.format('e');
     while (i<=lD.format('e')) {
       arr[i] = {display:"block", content: th.format('D'), date: th.format('YYYY-MM-DD')};
       th.add(1,'day');
       i++;
     }
     //
-    var s = {
+    this.setState({
       firstDay:fD,
       lastDay:lD,
       activeDay:aD,
       mode:"week",
       numberArray:arr
-    };
-    if (this.state.activeDay === undefined)
-      this.state = s;
-      else this.setState(s);
+    });
     //
   }
   monthUpdate (m) {
-    if (m === undefined)
-      m = moment();
-    var aD = moment(m);
-    var fD = moment(m.startOf("month"));
-    var lD = moment(m.endOf("month"));
+    this.props.updateMethod(m);
+    const aD = moment(m);
+    const fD = moment(m.startOf("month"));
+    const lD = moment(m.endOf("month"));
     //задаем числа
-    var arr = [];
-    var th = moment(fD);
-    var i = th.format('D');
-    var ind = 0;
-    var sdvig = fD.format('e');
+    const arr = [];
+    let th = moment(fD);
+    let i = th.format('D');
+    let ind = 0;
+    const sdvig = fD.format('e');
     while (i<=lD.format('D')) {
       ind = Number(i) + Number(sdvig) - 1;
       arr[ind] = {display:"block", content: th.format('D'), date: th.format('YYYY-MM-DD')};
@@ -74,16 +66,13 @@ class Calendar extends React.Component {
     }
     m = aD;
     //
-    var s = {
+    this.setState({
       firstDay:fD,
       lastDay:lD,
       activeDay:aD,
       mode:"month",
       numberArray:arr
-    };
-    if (this.state.activeDay === undefined)
-      this.state = s;
-      else this.setState(s);
+    });
 
   }
   prev () {
@@ -105,9 +94,8 @@ class Calendar extends React.Component {
       return(35);
   }
   setMode(m) {
-    this.state.mode = m;
-    if (this.state.mode === "week ") this.update(this.state.activeDay);
-    else this.update(moment(this.state.activeDay).startOf('month'));
+    if (m === "week") this.weekUpdate(this.state.activeDay);
+    else this.monthUpdate(moment(this.state.activeDay).startOf('month'));
   }
   render () {
     return (

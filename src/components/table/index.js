@@ -5,8 +5,8 @@ import React from 'react';
 
 class Table extends React.Component {
   renderAllCells (n){
-    var arr = [];
-    for (var i = 0;i<n;i++)
+    const arr = [];
+    for (let i = 0;i<n;i++)
       if (i % 7 === 0)
         arr[i] = this.renderFirstCell(i);
       else
@@ -20,7 +20,7 @@ class Table extends React.Component {
   }
   getColor (i) {
     if (this.props.data[i]=== undefined) return (" ");
-    var arr = [];
+    const arr = [];
     if (this.props.data[i].date === this.props.activeDay)
       arr[0] = "#0B3157";
     else
@@ -49,10 +49,10 @@ class Table extends React.Component {
     return false;
   }
   renderOneCell (i) {
-    var thEvents = undefined;
-    var thStyle = undefined;
+    let thEvents = undefined;
+    let thStyle = undefined;
     if (this.props.data[i]!==undefined) {
-      var thDate = moment(this.props.data[i].date).format('D.MM.YYYY');
+      let thDate = moment(this.props.data[i].date).format('D.MM.YYYY');
       if (this.props.events[thDate] !== undefined) {
         thEvents = this.props.events[thDate].count;
         thStyle = this.props.events[thDate].styles;

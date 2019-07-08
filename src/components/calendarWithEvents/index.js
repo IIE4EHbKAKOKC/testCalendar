@@ -7,24 +7,25 @@ class Calendar extends React.Component {
   state = {
     date:undefined
   }
+  componentDidMount () {
+    this.update(moment());
+  }
   getEvents () {
     if (this.state.date === undefined) return [];
 
-    var thEvents = this.props.events.find(x=>x.date === this.state.date);
+    const thEvents = this.props.events.find(x=>x.date === this.state.date);
     if ((thEvents === undefined)||(!thEvents.hasOwnProperty("events"))) return [];
 
     return thEvents.events;
   }
   update (m) {
-    if (m===undefined)
-      m = moment();
     this.setState ({
       date:m.format('D.MM.YYYY')
     });
   }
   getStyleArray (events) {
-    var arr = [];
-    for (var i = 0;i < events.length; i++)
+    const arr = [];
+    for (let i = 0;i < events.length; i++)
       arr[i] = events[i].visualiserStyle;
     return arr;
   }
@@ -35,12 +36,12 @@ class Calendar extends React.Component {
           daysOff = {this.props.daysOff}
           updateMethod = {(m)=>{this.update(m);}}
           events = {()=>{
-            var arr = [];
-            for (var i = 0;i<this.props.events.length;i++) {
+            const arr = [];
+            for (let i = 0;i<this.props.events.length;i++) {
               arr[this.props.events[i].date] = {
                 count:this.props.events[i].events.length,
                 styles:this.getStyleArray(this.props.events[i].events)
-              }
+              };
             }
             return arr;
           }}
